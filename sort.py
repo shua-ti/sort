@@ -67,7 +67,7 @@ def selectionsort_iter(seq):
         seq[i],seq[min_j] = seq[min_j],seq[i]
 
 #计数排序
-#单字符排序
+#单字符排序-
 def countingsort(A,key=lambda x:x):
     B,C = [],defaultdict(list)
     for x in A:
