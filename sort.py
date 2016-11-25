@@ -5,14 +5,14 @@
 N=[11,2,3,22,3,45,2,34,6,78]
 
 #快速排序
+#列表类型 +
 def quicksort(arr):
     if len(arr) <= 1:
         return arr
     pivot = arr[0]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    return quicksort(left) + middle + quicksort(right)
+    left = [x for x in arr[1:] if x <= pivot]
+    right = [x for x in arr[1:] if x > pivot]
+    return quicksort(left) + [pivot] + quicksort(right)
 
 #插入排序
 #根据归纳 将 ith 元素插入 (i-1)有序序列中
