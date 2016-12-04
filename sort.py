@@ -2,6 +2,7 @@
 #/usr/bin/env python
 "多种排序算法实现"
 from collections import defaultdict
+from heapq import merge
 N=[11,2,3,22,3,45,2,34,6,78]
 A=['fbsb','fahb','vsdb','vseu','vsef']
 #快速排序
@@ -21,14 +22,15 @@ def mergesort(seq):
     left,right = seq[:mid],seq[mid:]
     if len(left)>1: left= mergesort(left)
     if len(right)>1:right=mergesort(right)
-    res =[]
-    while left and right:
-        if left[-1] >= right[-1]:
-            res.append(left.pop())
-        else:
-            res.append(right.pop())
-    res.reverse()         #res[]中元素从大到小排列，left/right有一个为空
-    return left+right+res
+    # res =[]
+    # while left and right:
+    #     if left[-1] >= right[-1]:
+    #         res.append(left.pop())
+    #     else:
+    #         res.append(right.pop())
+    # res.reverse()         #res[]中元素从大到小排列，left/right有一个为空
+    # return left+right+res
+    return list(merge(left,right))
 
 #插入排序
 #根据归纳 将 ith 元素插入 (i-1)有序序列中
